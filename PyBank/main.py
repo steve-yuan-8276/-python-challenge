@@ -4,7 +4,7 @@ import csv
 # Getting the folder's path
 budget_data_csv = os.path.join(".", "Resources", "budget_data.csv")
 
-# Define the Calculate function
+# Define the Function
 def financial_analysis(budget_data):
     # initialize variables
     months = []

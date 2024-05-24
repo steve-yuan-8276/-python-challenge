@@ -17,7 +17,11 @@ The greatest increase in profits (date and amount) over the entire period
 
 The greatest decrease in profits (date and amount) over the entire period
 
-Your analysis should align with the following results:
+### Solution
+
+Analysis File: main.py
+
+Results: financial_analysis_results.txt
 
 ## PyPoll Instructions
 
@@ -34,3 +38,9 @@ The percentage of votes each candidate won
 The total number of votes each candidate won
 
 The winner of the election based on popular vote
+
+### Solution
+
+Analysis File: main.py
+
+Results: election_results.txt

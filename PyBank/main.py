@@ -5,16 +5,19 @@ import csv
 budget_data_csv = os.path.join(".", "Resources", "budget_data.csv")
 
 # Define the Function
-def financial_analysis(budget_data):
+def financial_analysis(file_path):
     # initialize variables
     months = []
     profit_loss = []
     change = []
 
     # Read data into lists
-    for row in budget_data:
-        months.append(row[0])
-        profit_loss.append(int(row[1]))
+    with open(file_path, "r") as budget_data:
+        budget_data = csv.reader(budget_data, delimiter=",")
+        header = next(budget_data)
+        for row in budget_data:
+            months.append(row[0])
+            profit_loss.append(int(row[1]))
 
     # Calculate the total number of months included in the dataset
     total_months = len(months)
@@ -66,8 +69,6 @@ def financial_analysis(budget_data):
         file.write(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})\n")
         file.write(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})\n")
 
-# Read data from csv file
-with open(budget_data_csv, "r") as budget_data:
-    budget_data = csv.reader(budget_data, delimiter=",")
-    header = next(budget_data)
-    financial_analysis(budget_data)
+
+# Call the function
+financial_analysis(budget_data_csv)

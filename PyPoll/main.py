@@ -1,19 +1,19 @@
-import csv
 import os
+import csv
 
 # Getting the folder's path
-election_csv = os.path.join(".", "Resources", "election_data.csv")
+file_path = os.path.join(".", "Resources", "election_data.csv")
 
 # Define the Function
-def election_results(election_csv):
+def election_results(file_path):
     votes = []
     candidates = []
 
     # Read data into list
-    with open(election_csv, newline='') as election_data:
-        csvreader = csv.reader(election_data, delimiter=',')
-        header = next(csvreader) #skip the header row
-        for row in csvreader:
+    with open(file_path, newline='') as election_data:
+        election_data = csv.reader(election_data, delimiter=',')
+        header = next(election_data) #skip the header row
+        for row in election_data:
             votes.append(row[0])
             candidates.append(row[2])
 
@@ -31,7 +31,7 @@ def election_results(election_csv):
     raymond_votes_percent = round(((raymond_votes_count / total_votes) * 100),3)
 
     # Find the winner of the election based on popular vote
-    if (charles_votes_percent> diana_votes_percent) and (charles_votes_percent > raymond_votes_percent):
+    if (charles_votes_percent > diana_votes_percent) and (charles_votes_percent > raymond_votes_percent):
         winner = "Charles Casper Stockham"
     elif (diana_votes_percent > charles_votes_percent) and (diana_votes_percent > raymond_votes_percent):
         winner = "Diana DeGette"
@@ -66,4 +66,4 @@ def election_results(election_csv):
         file.write(f"-----------------------\n")
 
 # Call the function
-election_results(election_csv)
+election_results(file_path)

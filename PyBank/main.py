@@ -2,7 +2,7 @@ import os
 import csv
 
 # Getting the folder's path
-budget_data_csv = os.path.join(".", "Resources", "budget_data.csv")
+file_path = os.path.join(".", "Resources", "budget_data.csv")
 
 # Define the Function
 def financial_analysis(file_path):
@@ -71,4 +71,4 @@ def financial_analysis(file_path):
 
 
 # Call the function
-financial_analysis(budget_data_csv)
+financial_analysis(file_path)
